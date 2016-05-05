@@ -11,6 +11,37 @@ var then = require('then-callback')
 var through2 = require('through2')
 var isPromise = require('is-promise')
 
+/**
+ * > Transform a Promise `val` to transform stream.
+ *
+ * **Example**
+ *
+ * ```js
+ * var promise2stream = require('promise2stream')
+ * var promise = Promise.resolve(123)
+ *
+ * var stream = promise2stream(promise)
+ * stream
+ *   .on('data', function (val) {
+ *     console.log(val) // => 123
+ *   })
+ *   .once('error', console.error)
+ *   .once('end', function () {
+ *     console.log('end')
+ *   })
+ *
+ * // or access the promise
+ * stream.promise.then(function (val) {
+ *   console.log(val) // => 123
+ * }, console.error)
+ * ```
+ *
+ * @param  {Promise} `val` Some promise.
+ * @param  {Object} `opts` Options passed directly to [through2][].
+ * @return {Stream}
+ * @api public
+ */
+
 module.exports = function promise2stream (val, opts) {
   if (!isPromise(val)) {
     throw new TypeError('promise2stream: expect `val` be promise')

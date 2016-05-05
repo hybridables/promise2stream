@@ -16,6 +16,37 @@ npm i promise2stream --save
 const promise2stream = require('promise2stream')
 ```
 
+### [promise2stream](index.js#L45)
+> Transform a Promise `val` to transform stream.
+
+**Params**
+
+* `val` **{Promise}**: Some promise.    
+* `opts` **{Object}**: Options passed directly to [through2][].    
+* `returns` **{Stream}**  
+
+**Example**
+
+```js
+var promise2stream = require('promise2stream')
+var promise = Promise.resolve(123)
+
+var stream = promise2stream(promise)
+stream
+  .on('data', function (val) {
+    console.log(val) // => 123
+  })
+  .once('error', console.error)
+  .once('end', function () {
+    console.log('end')
+  })
+
+// or access the promise
+stream.promise.then(function (val) {
+  console.log(val) // => 123
+}, console.error)
+```
+
 ## Related
 * [limon](https://www.npmjs.com/package/limon): The pluggable JavaScript lexer on per character basis. | [homepage](https://github.com/limonjs/limon)
 * [postcss](https://www.npmjs.com/package/postcss): Tool for transforming styles with JS plugins | [homepage](http://postcss.org/)
