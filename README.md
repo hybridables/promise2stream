@@ -23,6 +23,7 @@ const promise2stream = require('promise2stream')
 * [postjson](https://www.npmjs.com/package/postjson): Transforming JSON with plugins. | [homepage](https://github.com/postjson/postjson)
 * [promise2thunk](https://www.npmjs.com/package/promise2thunk): Convert (transform) promise to thunk, just like was in co@3 | [homepage](https://github.com/tunnckocore/promise2thunk)
 * [stream-from-promise](https://www.npmjs.com/package/stream-from-promise): Create streams from promises | [homepage](https://github.com/schnittstabil/stream-from-promise)
+* [stream-to-promise](https://www.npmjs.com/package/stream-to-promise): Convert streams (readable or writable) to promises | [homepage](https://github.com/bendrucker/stream-to-promise)
 * [through2](https://www.npmjs.com/package/through2): A tiny wrapper around Node streams2 Transform to avoid explicit subclassing noise | [homepage](https://github.com/rvagg/through2)
 * [thunk2promise](https://www.npmjs.com/package/thunk2promise): Transform or convert thunk to Bluebird Promise. | [homepage](https://github.com/tunnckocore/thunk2promise)
 

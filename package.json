@@ -51,14 +51,15 @@
     ],
     "related": {
       "list": [
-        "through2",
-        "posthtml",
-        "postcss",
-        "stream-from-promise",
         "limon",
+        "postcss",
+        "posthtml",
         "postjson",
         "promise2thunk",
-        "thunk2promise"
+        "stream-from-promise",
+        "through2",
+        "thunk2promise",
+        "stream-to-promise"
       ]
     },
     "run": true,
