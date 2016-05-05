@@ -101,8 +101,9 @@ test('should not be object mode stream (opts.objectMode: false)', function (done
   var promise = Bluebird.resolve({ foo: 'bar' })
   var stream = promise2stream(promise, { objectMode: false })
   stream.on('error', function (err) {
-    test.strictEqual(err instanceof Error, true)
-    test.strictEqual(err.message, 'Invalid non-string/buffer chunk')
+    test.ifError(!err)
+    test.strictEqual(err instanceof TypeError, true)
+    test.strictEqual(/Invalid non-string\/buffer chunk/gi.test(err.message), true)
     done()
   })
 })
