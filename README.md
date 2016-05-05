@@ -27,7 +27,7 @@ const promise2stream = require('promise2stream')
 * [thunk2promise](https://www.npmjs.com/package/thunk2promise): Transform or convert thunk to Bluebird Promise. | [homepage](https://github.com/tunnckocore/thunk2promise)
 
 ## Contributing
-Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/tunnckoCore/promise2stream/issues/new).  
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/hybridables/promise2stream/issues/new).  
 But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines.
 
 ## [Charlike Make Reagent](http://j.mp/1stW47C) [![new message to charlike][new-message-img]][new-message-url] [![freenode #charlike][freenode-img]][freenode-url]
@@ -39,23 +39,23 @@ But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) 
 [npmjs-url]: https://www.npmjs.com/package/promise2stream
 [npmjs-img]: https://img.shields.io/npm/v/promise2stream.svg?label=promise2stream
 
-[license-url]: https://github.com/tunnckoCore/promise2stream/blob/master/LICENSE
+[license-url]: https://github.com/hybridables/promise2stream/blob/master/LICENSE
 [license-img]: https://img.shields.io/npm/l/promise2stream.svg
 
 [downloads-url]: https://www.npmjs.com/package/promise2stream
 [downloads-img]: https://img.shields.io/npm/dm/promise2stream.svg
 
-[codeclimate-url]: https://codeclimate.com/github/tunnckoCore/promise2stream
-[codeclimate-img]: https://img.shields.io/codeclimate/github/tunnckoCore/promise2stream.svg
+[codeclimate-url]: https://codeclimate.com/github/hybridables/promise2stream
+[codeclimate-img]: https://img.shields.io/codeclimate/github/hybridables/promise2stream.svg
 
-[travis-url]: https://travis-ci.org/tunnckoCore/promise2stream
-[travis-img]: https://img.shields.io/travis/tunnckoCore/promise2stream/master.svg
+[travis-url]: https://travis-ci.org/hybridables/promise2stream
+[travis-img]: https://img.shields.io/travis/hybridables/promise2stream/master.svg
 
-[coveralls-url]: https://coveralls.io/r/tunnckoCore/promise2stream
-[coveralls-img]: https://img.shields.io/coveralls/tunnckoCore/promise2stream.svg
+[coveralls-url]: https://coveralls.io/r/hybridables/promise2stream
+[coveralls-img]: https://img.shields.io/coveralls/hybridables/promise2stream.svg
 
-[david-url]: https://david-dm.org/tunnckoCore/promise2stream
-[david-img]: https://img.shields.io/david/tunnckoCore/promise2stream.svg
+[david-url]: https://david-dm.org/hybridables/promise2stream
+[david-img]: https://img.shields.io/david/hybridables/promise2stream.svg
 
 [standard-url]: https://github.com/feross/standard
 [standard-img]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg

@@ -2,7 +2,7 @@
   "name": "promise2stream",
   "version": "0.1.0",
   "description": "Transform ES2015 Promise to Stream - specifically, Transform Stream using [through2][]. Works in object mode by default, but you can pass options directly to the [through2][] package.",
-  "repository": "tunnckoCore/promise2stream",
+  "repository": "hybridables/promise2stream",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
   "precommit.silent": true,
   "main": "index.js",
