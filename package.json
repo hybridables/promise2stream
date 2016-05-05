@@ -25,7 +25,25 @@
     "index.js"
   ],
   "keywords": [
-    "promise2stream"
+    "always",
+    "array",
+    "boolean",
+    "buffer",
+    "create",
+    "everything",
+    "make",
+    "promise",
+    "promise-stream",
+    "promises",
+    "str",
+    "stream",
+    "string",
+    "through",
+    "transform",
+    "util",
+    "utils",
+    "val",
+    "value"
   ],
   "verb": {
     "reflinks": [
@@ -49,7 +67,6 @@
     "lint": {
       "reflinks": true
     },
-    "related.list": true,
     "tasks": [
       "readme"
     ]
