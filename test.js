@@ -9,7 +9,6 @@
 
 var test = require('mukla')
 var promise2stream = require('./index')
-var through2 = require('through2')
 var isPromise = require('is-promise')
 var isStream = require('is-node-stream')
 var isBuffer = require('is-buffer')
@@ -106,4 +105,16 @@ test('should not be object mode stream (opts.objectMode: false)', function (done
     test.strictEqual(err.message, 'Invalid non-string/buffer chunk')
     done()
   })
+})
+
+test('should access the promise from returned stream, e.g. `stream.promise`', function (done) {
+  var promise = Bluebird.resolve(456)
+  var stream = promise2stream(promise)
+
+  test.strictEqual(isPromise(stream.promise), true)
+
+  stream.promise.then(function (val) {
+    test.strictEqual(val, 456)
+    done()
+  }, done)
 })

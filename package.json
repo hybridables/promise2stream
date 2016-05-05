@@ -16,6 +16,7 @@
     "through2": "^2.0.1"
   },
   "devDependencies": {
+    "bluebird": "^3.3.5",
     "is-buffer": "^1.1.3",
     "is-node-stream": "^1.0.0",
     "mukla": "^0.3.1",
