@@ -11,7 +11,6 @@
     "test": "standard && node test.js"
   },
   "dependencies": {
-    "is-node-stream": "^1.0.0",
     "is-promise": "^2.1.0",
     "then-callback": "^1.0.3",
     "through2": "^2.0.1"

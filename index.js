@@ -10,7 +10,6 @@
 var then = require('then-callback')
 var through2 = require('through2')
 var isPromise = require('is-promise')
-var isStream = require('is-node-stream')
 
 /**
  * > Transform a Promise `val` to transform stream.
@@ -64,10 +63,6 @@ module.exports = function promise2stream (val, opts) {
   stream.promise = then(stream.promise)
     .then(function cb (err, res) {
       if (err) return stream.emit('error', err)
-      if (isStream(res)) {
-        res.pipe(stream)
-        return
-      }
       stream.push(res)
       stream.push(null)
     })

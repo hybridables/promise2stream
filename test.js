@@ -7,20 +7,13 @@
 
 'use strict'
 
+var fs = require('fs')
 var test = require('assertit')
 var promise2stream = require('./index')
 var isPromise = require('is-promise')
 var isStream = require('is-node-stream')
 var isBuffer = require('is-buffer')
 var Promize = require('pinkie-promise')
-var through2 = require('through2')
-
-function toStream (val) {
-  var stream = through2()
-  stream.push(val)
-  stream.push(null)
-  return stream
-}
 
 test.true = function (val) {
   test.strictEqual(isStream(val), true)
@@ -140,20 +133,21 @@ test('should get value of promise that resolves another promise', function (done
     .once('end', done)
 })
 
-test('should get value of resolved stream', function (done) {
-  var stringStream = toStream('foo 123 bar')
-  stringStream
+test('should not get value of resolved stream', function (done) {
+  var pkgStream = fs.createReadStream('package.json')
+  pkgStream
     .on('data', function (val) {
-      test.strictEqual(val.toString(), 'foo 123 bar')
+      var str = val.toString('utf8')
+      test.strictEqual(isBuffer(val), true)
+      test.strictEqual(str.indexOf('license') !== -1, true)
     })
     .once('error', done)
     .once('end', function () {
-      var promise = Promize.resolve(stringStream)
+      var promise = Promize.resolve(pkgStream)
       var stream = promise2stream(promise)
       stream
         .on('data', function (val) {
-          test.strictEqual(typeof val, 'string')
-          test.strictEqual(val, 'foo 123 bar')
+          test.strictEqual(isStream(val), true)
         })
         .once('error', done)
         .once('end', done)
