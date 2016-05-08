@@ -16,7 +16,7 @@ npm i promise2stream --save
 const promise2stream = require('promise2stream')
 ```
 
-### [promise2stream](index.js#L45)
+### [promise2stream](index.js#L53)
 > Transform a Promise `val` to transform stream.
 
 **Params**
@@ -45,12 +45,20 @@ stream
 stream.promise.then(function (val) {
   console.log(val) // => 123
 }, console.error)
+
+// rejected promise fires `error` event
+var rejectedPromise = Promise.reject(new Error('foo err'))
+var stream = promise2stream(rejectedPromise)
+
+stream.once('error', function (err) {
+  console.log(err) // => [Error: foo err]
+})
 ```
 
 ## Related
-* [limon](https://www.npmjs.com/package/limon): The pluggable JavaScript lexer on per character basis. | [homepage](https://github.com/limonjs/limon)
 * [postcss](https://www.npmjs.com/package/postcss): Tool for transforming styles with JS plugins | [homepage](http://postcss.org/)
 * [posthtml](https://www.npmjs.com/package/posthtml): HTML/XML processor | [homepage](https://github.com/posthtml/posthtml)
+* [limon](https://www.npmjs.com/package/limon): The pluggable JavaScript lexer. Limon = Lemon. | [homepage](https://github.com/limonjs/limon)
 * [postjson](https://www.npmjs.com/package/postjson): Transforming JSON with plugins. | [homepage](https://github.com/postjson/postjson)
 * [promise2thunk](https://www.npmjs.com/package/promise2thunk): Convert (transform) promise to thunk, just like was in co@3 | [homepage](https://github.com/tunnckocore/promise2thunk)
 * [stream-from-promise](https://www.npmjs.com/package/stream-from-promise): Create streams from promises | [homepage](https://github.com/schnittstabil/stream-from-promise)

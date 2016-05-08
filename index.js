@@ -34,6 +34,14 @@ var isPromise = require('is-promise')
  * stream.promise.then(function (val) {
  *   console.log(val) // => 123
  * }, console.error)
+ *
+ * // rejected promise fires `error` event
+ * var rejectedPromise = Promise.reject(new Error('foo err'))
+ * var stream = promise2stream(rejectedPromise)
+ *
+ * stream.once('error', function (err) {
+ *   console.log(err) // => [Error: foo err]
+ * })
  * ```
  *
  * @param  {Promise} `val` Some promise.
