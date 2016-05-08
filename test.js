@@ -13,14 +13,14 @@ var isPromise = require('is-promise')
 var isStream = require('is-node-stream')
 var isBuffer = require('is-buffer')
 var Promize = require('pinkie-promise')
-// var through2 = require('through2')
+var through2 = require('through2')
 
-// function toStream (val) {
-//   var stream = through2()
-//   stream.push(val)
-//   stream.push(null)
-//   return stream
-// }
+function toStream (val) {
+  var stream = through2()
+  stream.push(val)
+  stream.push(null)
+  return stream
+}
 
 test.true = function (val) {
   test.strictEqual(isStream(val), true)
@@ -140,22 +140,22 @@ test('should get value of promise that resolves another promise', function (done
     .once('end', done)
 })
 
-// test('should get value of resolved stream', function (done) {
-//   var stringStream = toStream('foo 123 bar')
-//   stringStream
-//     .on('data', function (val) {
-//       test.strictEqual(val.toString(), 'foo 123 bar')
-//     })
-//     .once('error', done)
-//     .once('end', function () {
-//       var promise = Promize.resolve(stringStream)
-//       var stream = promise2stream(promise)
-//       stream
-//         .on('data', function (val) {
-//           test.strictEqual(typeof val, 'string')
-//           test.strictEqual(val, 'foo 123 bar')
-//         })
-//         .once('error', done)
-//         .once('end', done)
-//     })
-// })
+test('should get value of resolved stream', function (done) {
+  var stringStream = toStream('foo 123 bar')
+  stringStream
+    .on('data', function (val) {
+      test.strictEqual(val.toString(), 'foo 123 bar')
+    })
+    .once('error', done)
+    .once('end', function () {
+      var promise = Promize.resolve(stringStream)
+      var stream = promise2stream(promise)
+      stream
+        .on('data', function (val) {
+          test.strictEqual(typeof val, 'string')
+          test.strictEqual(val, 'foo 123 bar')
+        })
+        .once('error', done)
+        .once('end', done)
+    })
+})
