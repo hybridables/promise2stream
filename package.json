@@ -58,9 +58,12 @@
         "postjson",
         "promise2thunk",
         "stream-from-promise",
+        "stream-to-promise",
         "through2",
         "thunk2promise",
-        "stream-to-promise"
+        "value2stream",
+        "callback2stream",
+        "always-stream"
       ]
     },
     "run": true,

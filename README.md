@@ -56,15 +56,18 @@ stream.once('error', function (err) {
 ```
 
 ## Related
+* [always-stream](https://www.npmjs.com/package/always-stream): Create stream from any value - function, array, string, buffer, promise, number,… [more](https://www.npmjs.com/package/always-stream) | [homepage](https://github.com/hybridables/always-stream)
+* [callback2stream](https://www.npmjs.com/package/callback2stream): Transform sync, async or generator function to Stream. Correctly handle errors. [homepage](https://github.com/hybridables/callback2stream)
+* [limon](https://www.npmjs.com/package/limon): The pluggable JavaScript lexer. Limon = Lemon. | [homepage](https://github.com/limonjs/limon)
 * [postcss](https://www.npmjs.com/package/postcss): Tool for transforming styles with JS plugins | [homepage](http://postcss.org/)
 * [posthtml](https://www.npmjs.com/package/posthtml): HTML/XML processor | [homepage](https://github.com/posthtml/posthtml)
-* [limon](https://www.npmjs.com/package/limon): The pluggable JavaScript lexer. Limon = Lemon. | [homepage](https://github.com/limonjs/limon)
 * [postjson](https://www.npmjs.com/package/postjson): Transforming JSON with plugins. | [homepage](https://github.com/postjson/postjson)
 * [promise2thunk](https://www.npmjs.com/package/promise2thunk): Convert (transform) promise to thunk, just like was in co@3 | [homepage](https://github.com/tunnckocore/promise2thunk)
 * [stream-from-promise](https://www.npmjs.com/package/stream-from-promise): Create streams from promises | [homepage](https://github.com/schnittstabil/stream-from-promise)
 * [stream-to-promise](https://www.npmjs.com/package/stream-to-promise): Convert streams (readable or writable) to promises | [homepage](https://github.com/bendrucker/stream-to-promise)
 * [through2](https://www.npmjs.com/package/through2): A tiny wrapper around Node streams2 Transform to avoid explicit subclassing noise | [homepage](https://github.com/rvagg/through2)
 * [thunk2promise](https://www.npmjs.com/package/thunk2promise): Transform or convert thunk to Bluebird Promise. | [homepage](https://github.com/tunnckocore/thunk2promise)
+* [value2stream](https://www.npmjs.com/package/value2stream): Transform any value to stream. Create stream from any value - string,… [more](https://www.npmjs.com/package/value2stream) | [homepage](https://github.com/hybridables/value2stream)
 
 ## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/hybridables/promise2stream/issues/new).  
