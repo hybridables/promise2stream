@@ -12,7 +12,7 @@ var promise2stream = require('./index')
 var isPromise = require('is-promise')
 var isStream = require('is-node-stream')
 var isBuffer = require('is-buffer')
-var Bluebird = require('bluebird')
+var Promize = require('pinkie-promise')
 
 test.true = function (val) {
   test.strictEqual(isStream(val), true)
@@ -28,9 +28,9 @@ test('should throw TypeError if `val` not a promise', function (done) {
 })
 
 test('should create stream from a resolved promise', function (done) {
-  var promiseNumber = Bluebird.resolve(123)
-  var promiseString = Bluebird.resolve('str')
-  var promiseBuffer = Bluebird.resolve(new Buffer('buff'))
+  var promiseNumber = Promize.resolve(123)
+  var promiseString = Promize.resolve('str')
+  var promiseBuffer = Promize.resolve(new Buffer('buff'))
 
   test.true(promise2stream(promiseNumber))
   test.true(promise2stream(promiseString))
@@ -39,7 +39,7 @@ test('should create stream from a resolved promise', function (done) {
 })
 
 test('should fire `end` event if promise resolves `null` value', function (done) {
-  var promise = Bluebird.resolve(null)
+  var promise = Promize.resolve(null)
   var stream = promise2stream(promise)
   var called = 0
 
@@ -55,7 +55,7 @@ test('should fire `end` event if promise resolves `null` value', function (done)
 })
 
 test('should fire `error` event if rejected promise', function (done) {
-  var rejectedPromise = Bluebird.reject(new Error('foo bar'))
+  var rejectedPromise = Promize.reject(new Error('foo bar'))
   var stream = promise2stream(rejectedPromise)
 
   stream.once('error', function (err) {
@@ -66,7 +66,7 @@ test('should fire `error` event if rejected promise', function (done) {
 })
 
 test('should fire `data` event if resolved promise with number value', function (done) {
-  var resolvedPromise = Bluebird.resolve(123)
+  var resolvedPromise = Promize.resolve(123)
   var stream = promise2stream(resolvedPromise)
 
   stream.on('data', function (val) {
@@ -77,7 +77,7 @@ test('should fire `data` event if resolved promise with number value', function 
 })
 
 test('should fire `data` event if object value', function (done) {
-  var promise = Bluebird.resolve({ a: 'b' })
+  var promise = Promize.resolve({ a: 'b' })
   var stream = promise2stream(promise)
 
   stream.on('data', function (val) {
@@ -88,7 +88,7 @@ test('should fire `data` event if object value', function (done) {
 })
 
 test('should get buffer if promise resolves buffer value', function (done) {
-  var buffer = Bluebird.resolve(new Buffer('a b. c'))
+  var buffer = Promize.resolve(new Buffer('a b. c'))
   promise2stream(buffer)
     .on('data', function (buf) {
       test.strictEqual(isBuffer(buf), true)
@@ -98,7 +98,7 @@ test('should get buffer if promise resolves buffer value', function (done) {
 })
 
 test('should not be object mode stream (opts.objectMode: false)', function (done) {
-  var promise = Bluebird.resolve({ foo: 'bar' })
+  var promise = Promize.resolve({ foo: 'bar' })
   var stream = promise2stream(promise, { objectMode: false })
   stream.on('error', function (err) {
     test.ifError(!err)
@@ -109,7 +109,7 @@ test('should not be object mode stream (opts.objectMode: false)', function (done
 })
 
 test('should access the promise from returned stream, e.g. `stream.promise`', function (done) {
-  var promise = Bluebird.resolve(456)
+  var promise = Promize.resolve(456)
   var stream = promise2stream(promise)
 
   test.strictEqual(isPromise(stream.promise), true)
